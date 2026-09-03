@@ -1,0 +1,55 @@
+{
+  "name": "markdown-preview-table-sort",
+  "displayName": "Markdown Preview Table Sort",
+  "description": "Sort tables by column in VS Code's built-in Markdown preview.",
+  "version": "0.1.0",
+  "publisher": "hkrhd",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.136.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "markdown",
+    "preview",
+    "table",
+    "sort",
+    "sorting"
+  ],
+  "galleryBanner": {
+    "color": "#0e5cc9",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hkrhd/vscode-markdown-preview-table-sort.git"
+  },
+  "bugs": "https://github.com/hkrhd/vscode-markdown-preview-table-sort/issues",
+  "homepage": "https://github.com/hkrhd/vscode-markdown-preview-table-sort#readme",
+  "contributes": {
+    "markdown.previewScripts": [
+      "./media/preview-table-sort.js"
+    ],
+    "markdown.previewStyles": [
+      "./media/sort.css"
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run test:e2e",
+    "test:e2e": "extest setup-and-run 'src/ui-test/**/*.test.js' --code_version 1.136.0 --extensions_dir .vscode-test/extensions --mocha_config .mocharc.js --open_resource src/ui-test/resources/tables.md --uninstall_extension",
+    "package:vsix": "vsce package --out markdown-preview-table-sort.vsix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@vscode/vsce": "^3.9.2",
+    "eslint": "^9.35.0",
+    "globals": "^16.3.0",
+    "mocha": "^11.7.2",
+    "vscode-extension-tester": "^8.25.0"
+  }
+}

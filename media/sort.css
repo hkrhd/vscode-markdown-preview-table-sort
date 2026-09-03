@@ -1,0 +1,53 @@
+th.markdown-preview-table-sort-sortable {
+  position: relative;
+  padding-right: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+th.markdown-preview-table-sort-sortable:hover {
+  background-color: var(--vscode-list-hoverBackground, rgba(127, 127, 127, 0.12));
+}
+
+.markdown-preview-table-sort-button {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 3px;
+  color: var(--vscode-descriptionForeground, currentColor);
+  background: transparent;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.markdown-preview-table-sort-button::before {
+  content: "↕";
+}
+
+th[aria-sort="ascending"] > .markdown-preview-table-sort-button::before {
+  content: "↑";
+}
+
+th[aria-sort="descending"] > .markdown-preview-table-sort-button::before {
+  content: "↓";
+}
+
+th[aria-sort] > .markdown-preview-table-sort-button {
+  color: var(--vscode-textLink-foreground, #3794ff);
+}
+
+.markdown-preview-table-sort-button:hover {
+  background-color: var(--vscode-toolbar-hoverBackground, rgba(127, 127, 127, 0.2));
+}
+
+.markdown-preview-table-sort-button:focus-visible {
+  outline: 1px solid var(--vscode-focusBorder, #007fd4);
+  outline-offset: 1px;
+}
+

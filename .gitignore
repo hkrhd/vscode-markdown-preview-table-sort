@@ -1,0 +1,6 @@
+.env
+*.vsix
+node_modules/
+.vscode-test/
+.vscode-test-resources/
+coverage/

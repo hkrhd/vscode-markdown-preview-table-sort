@@ -1,0 +1,14 @@
+.env
+.jj/**
+.github/**
+.vscode-test/**
+.vscode-test-resources/**
+.gitignore
+.mocharc.js
+.nvmrc
+eslint.config.js
+src/**
+test-resources/**
+node_modules/**
+package-lock.json
+*.vsix
