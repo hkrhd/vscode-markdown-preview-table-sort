@@ -42,14 +42,10 @@ describe('Markdown preview table sorting', function () {
       }
     }, 30000);
     await (await editorView.getActiveTab()).select();
-    const commandKey = process.platform === 'darwin' ? Key.COMMAND : Key.CONTROL;
-    await driver.actions()
-      .keyDown(commandKey)
-      .keyDown(Key.SHIFT)
-      .sendKeys('v')
-      .keyUp(Key.SHIFT)
-      .keyUp(commandKey)
-      .perform();
+    const previewAction = await editorView.getAction(async (action) =>
+      (await action.getTitle()).startsWith('Open Preview to the Side'), 0, 30000);
+    assert.ok(previewAction, 'Markdown preview editor action was not available');
+    await previewAction.click();
     view = new WebView();
     await view.switchToFrame(30000);
     try {
