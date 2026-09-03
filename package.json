@@ -32,7 +32,7 @@
   "homepage": "https://github.com/hkrhd/vscode-markdown-preview-table-sort#readme",
   "contributes": {
     "markdown.previewScripts": [
-      "./media/preview-table-sort.js"
+      "./media/markdown-preview-table-sort.js"
     ],
     "markdown.previewStyles": [
       "./media/sort.css"

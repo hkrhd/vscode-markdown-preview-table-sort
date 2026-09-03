@@ -148,14 +148,20 @@
     document.querySelectorAll('table').forEach(initializeTable);
   }
 
-  function initializeAfterPreviewRender() {
-    window.setTimeout(initializeTables, 0);
+  function initializePreview() {
+    initializeTables();
+
+    const observer = new MutationObserver(initializeTables);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAfterPreviewRender, { once: true });
+    document.addEventListener('DOMContentLoaded', initializePreview, { once: true });
   } else {
-    initializeAfterPreviewRender();
+    initializePreview();
   }
 
   window.addEventListener('vscode.markdown.updateContent', initializeTables);

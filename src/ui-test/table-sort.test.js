@@ -70,7 +70,7 @@ describe('Markdown preview table sorting', function () {
       const scriptFetch = await driver.executeAsyncScript(
         'const done = arguments[0];'
           + 'const source = Array.from(document.scripts, script => script.src)'
-          + '.find(src => src.endsWith("/preview-table-sort.js"));'
+          + '.find(src => src.endsWith("/markdown-preview-table-sort.js"));'
           + 'fetch(source).then(async response => {'
           + 'const text = await response.text();'
           + 'done({ ok: response.ok, status: response.status, bytes: text.length });'
