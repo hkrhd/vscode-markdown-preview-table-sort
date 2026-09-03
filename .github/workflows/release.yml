@@ -30,7 +30,7 @@ jobs:
       - name: Verify release version
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: test "v$(node -p 'require(\"./package.json\").version')" = "$RELEASE_TAG"
+        run: test "v$(node -p 'require("./package.json").version')" = "$RELEASE_TAG"
 
       - name: Lint
         run: npm run lint
