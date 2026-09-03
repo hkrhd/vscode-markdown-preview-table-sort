@@ -1,31 +1,21 @@
 # Markdown Preview Table Sort
 
-[English](./README.md)
+[English README.md](./README.md)
 
-VS Code 標準の Markdown プレビュー上で、テーブルを列ごとに並べ替える拡張機能です。
+VSCode 標準の Markdown プレビュー上で，テーブルのソート機能を追加する拡張です．
 
-## 機能
+## 仕様
 
 - テーブルヘッダーをクリックして列をソート
 - クリックごとに昇順、降順、Markdown 記載順を切り替え
 - `item2` が `item10` より前になる自然順ソート
 - 空セルは常に末尾
 - 複数のテーブルをそれぞれ独立してソート
-- キーボード操作とスクリーンリーダーに対応
 - Markdown 原文は変更しません
-
-## 使い方
-
-1. Markdown ファイルを開きます。
-2. VS Code 標準の Markdown プレビュー（`Ctrl+Shift+V` / `Cmd+Shift+V`）を開きます。
-3. 列ヘッダーをクリックするか、ソートボタンへフォーカスして Enter または Space を押します。
-
-プレビュー内容が更新されると、ソート状態は Markdown 記載順に戻ります。
 
 ## 必要環境
 
 - VS Code 1.136.0 以降
-- VS Code 標準 Markdown プレビューで描画されたテーブル
 
 ## 制限事項
 
@@ -46,4 +36,3 @@ npm run package:vsix
 ## ライセンス
 
 [MIT](./LICENSE)
-

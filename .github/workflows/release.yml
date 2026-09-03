@@ -1,22 +1,22 @@
 name: Release
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout release tag
+      - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.release.tag_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -26,11 +26,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Verify release version
-        env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: test "v$(node -p 'require("./package.json").version')" = "$RELEASE_TAG"
 
       - name: Lint
         run: npm run lint
@@ -44,12 +39,20 @@ jobs:
       - name: Package VSIX
         run: npm run package:vsix
 
+      - name: Create or update release pull request
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: node
+
       - name: Publish to Visual Studio Marketplace
+        if: ${{ steps.release.outputs.release_created }}
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npm exec -- vsce publish
+        run: npm exec -- vsce publish --packagePath markdown-preview-table-sort.vsix
 
       - name: Attach VSIX to GitHub Release
+        if: ${{ steps.release.outputs.release_created }}
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "$GITHUB_REF_NAME" markdown-preview-table-sort.vsix --clobber
+        run: gh release upload "${{ steps.release.outputs.tag_name }}" markdown-preview-table-sort.vsix --clobber

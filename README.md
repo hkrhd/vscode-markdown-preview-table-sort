@@ -2,35 +2,25 @@
 
 [日本語](./README_JA.md)
 
-Sort tables by column directly in VS Code's built-in Markdown preview.
+Adds table sorting to VS Code's built-in Markdown preview.
 
-## Features
+## Behavior
 
-- Click a table header to sort the column.
-- Click again to cycle through ascending, descending, and the original Markdown order.
-- Natural sorting keeps values such as `item2` before `item10`.
-- Empty cells stay at the bottom.
-- Each table is sorted independently.
-- Keyboard and screen-reader friendly controls.
-- Your Markdown source is never modified.
-
-## Usage
-
-1. Open a Markdown file.
-2. Open VS Code's built-in Markdown preview (`Ctrl+Shift+V` / `Cmd+Shift+V`).
-3. Click a column header, or focus its sort button and press Enter or Space.
-
-The sort state resets to the original Markdown order when the preview content is refreshed.
+- Click a table header to sort by that column
+- Cycle through ascending, descending, and the original Markdown order with each click
+- Natural sorting places `item2` before `item10`
+- Empty cells always appear last
+- Sort multiple tables independently
+- Does not modify the Markdown source
 
 ## Requirements
 
-- VS Code 1.136.0 or newer
-- Tables rendered by VS Code's built-in Markdown preview
+- VS Code 1.136.0 or later
 
 ## Known limitations
 
-- Dates are compared as natural text; no date-format inference is performed.
-- Raw HTML tables without both a header and body are not changed.
+- Dates are compared as natural text without inferring their format.
+- Raw HTML tables without both a header and body are not modified.
 
 ## Development
 
@@ -46,4 +36,3 @@ npm run package:vsix
 ## License
 
 [MIT](./LICENSE)
-

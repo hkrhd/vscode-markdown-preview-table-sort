@@ -1,5 +1,7 @@
 # Sortable tables
 
+[Open alternate table](./alternate.md)
+
 | Item | Score | Note |
 | --- | ---: | --- |
 | item10 | 10 | [target](#target) |
@@ -13,4 +15,3 @@
 | Osaka | 1 |
 
 ## target
-
