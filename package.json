@@ -2,7 +2,7 @@
   "name": "markdown-preview-table-sort",
   "displayName": "Markdown Preview Table Sort",
   "description": "Sort tables by column in VS Code's built-in Markdown preview.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "hkrhd",
   "license": "MIT",
   "icon": "images/icon.png",
